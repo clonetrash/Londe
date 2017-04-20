@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
@@ -6,13 +6,17 @@
 
 [sub_resource type="BoxShape" id=1]
 
-extents = Vector3( 11.9603, 1, 10.3797 )
+extents = Vector3( 24.564, 1.62184, 24.3013 )
+
+[sub_resource type="BoxShape" id=2]
+
+extents = Vector3( 58.4402, 23.9264, 1 )
 
 [node name="Node" type="Node"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 
-transform/local = Transform( 0.999883, -0.0152925, 6.70552e-008, 0.0152925, 0.999883, 0, -2.23517e-008, -1.62981e-009, 1, 0, 0, 0 )
+transform/local = Transform( 0.999883, -0.0152925, 6.70552e-08, 0.0152925, 0.999883, 0, -2.23517e-08, -1.62981e-09, 1, 0, 0, 0 )
 script/script = ExtResource( 2 )
 campath = NodePath("../Camera")
 speed = 6.0
@@ -58,7 +62,7 @@ geometry/baked_light_tex_id = 0
 [node name="Camera" type="Camera" parent="."]
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-transform/local = Transform( 0.996137, -4.16311e-005, -0.0878039, 0.000158945, 0.999999, 0.00132906, 0.0878038, -0.00133787, 0.996137, -1.52293, 2, 3.97717 )
+transform/local = Transform( 0.996137, -4.16311e-05, -0.0878039, 0.000158945, 0.999999, 0.00132906, 0.0878038, -0.00133787, 0.996137, -1.52293, 2, 8 )
 projection = 0
 fov = 43.1863
 near = 0.1
@@ -71,18 +75,18 @@ h_offset = 0.0
 v_offset = 0.0
 script/script = ExtResource( 3 )
 playerpath = NodePath("../Player")
-offset = Vector3( 0, 3, 6 )
+offset = Vector3( 0, 3, 9 )
 focus = Vector3( 0, 2, 0 )
 
 [node name="StaticBody" type="StaticBody" parent="."]
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-transform/local = Transform( 0.984808, 0, 0.173648, 0, 1, 0, -0.173648, 0, 0.984808, 0, -1, 0 )
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
 input/ray_pickable = true
 input/capture_on_drag = false
 shape_count = 1
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Transform( 0.984808, 0, -0.173648, 0, 1, 0, 0.173648, 0, 0.984808, 0, 0, 0 )
+shapes/0/transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.622696, -0.550554, 0.700249 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 3
@@ -94,8 +98,120 @@ constant_angular_velocity = Vector3( 0, 0, 0 )
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-transform/local = Transform( 0.984808, 0, -0.173648, 0, 1, 0, 0.173648, 0, 0.984808, 0, 0, 0 )
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.622696, -0.550554, 0.700249 )
 shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="TestCube" type="TestCube" parent="StaticBody"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 25, 0, 3.72529e-07, 0, 1, 0, -3.72529e-07, 0, 25, -0.0995697, 0.0457039, -0.0338631 )
+layers = 1
+geometry/visible = true
+geometry/material_override = null
+geometry/cast_shadow = 1
+geometry/receive_shadows = true
+geometry/range_begin = 0.0
+geometry/range_end = 0.0
+geometry/extra_cull_margin = 0.0
+geometry/billboard = false
+geometry/billboard_y = false
+geometry/depth_scale = false
+geometry/visible_in_all_rooms = false
+geometry/use_baked_light = false
+geometry/baked_light_tex_id = 0
+
+[node name="DirectionalLight" type="DirectionalLight" parent="StaticBody/TestCube"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 0.925587, -0.0314577, 0.0175145, 6.16456, 0.387001, 9.0322, -0.256749, -0.0644988, 0.711898, 0, 0, 0 )
+layers = 1
+params/enabled = true
+params/editor_only = false
+params/bake_mode = 0
+params/energy = 1.0
+colors/diffuse = Color( 1, 1, 1, 1 )
+colors/specular = Color( 1, 1, 1, 1 )
+shadow/shadow = false
+shadow/darkening = 0.0
+shadow/z_offset = 0.05
+shadow/z_slope_scale = 0.0
+shadow/esm_multiplier = 60.0
+shadow/blur_passes = 1.0
+projector = null
+operator = 0
+shadow/mode = 0
+shadow/max_distance = 0.0
+shadow/split_weight = 0.5
+shadow/zoffset_scale = 2.0
+
+[node name="StaticBody1" type="StaticBody" parent="."]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30.0346, 0.266036, -0.373724 )
+input/ray_pickable = true
+input/capture_on_drag = false
+shape_count = 1
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.254921, -0.547484, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 3
+friction = 0.51
+bounce = 0.51
+constant_linear_velocity = Vector3( 1, 1, 1 )
+constant_angular_velocity = Vector3( 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody1"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.254921, -0.547484, 0 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="TestCube" type="TestCube" parent="StaticBody1"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 25, 0, 3.72529e-07, 0, 1, 0, -3.72529e-07, 0, 25, -0.0995697, 0.0457039, -0.0338631 )
+layers = 1
+geometry/visible = true
+geometry/material_override = null
+geometry/cast_shadow = 1
+geometry/receive_shadows = true
+geometry/range_begin = 0.0
+geometry/range_end = 0.0
+geometry/extra_cull_margin = 0.0
+geometry/billboard = false
+geometry/billboard_y = false
+geometry/depth_scale = false
+geometry/visible_in_all_rooms = false
+geometry/use_baked_light = false
+geometry/baked_light_tex_id = 0
+
+[node name="StaticBody 2" type="StaticBody" parent="."]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 30.3765 )
+input/ray_pickable = true
+input/capture_on_drag = false
+shape_count = 1
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.622696, -1.55055, -3.96277 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+friction = 1.0
+bounce = 0.0
+constant_linear_velocity = Vector3( 0, 0, 0 )
+constant_angular_velocity = Vector3( 0, 0, 0 )
+
+[node name="CollisionShape 2" type="CollisionShape" parent="StaticBody 2"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.622696, -1.55055, -3.96277 )
+shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 0
 

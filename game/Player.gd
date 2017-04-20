@@ -4,6 +4,9 @@ onready var cam = get_node(campath)
 export (NodePath) var campath 
 export (float) var speed
 var input = Vector3 ()
+var yspeed = 0
+var grounded = true 
+
 
 
 func _ready():
@@ -21,9 +24,9 @@ func _input(event):
 		input.x=-1 
 		
 	if event.is_action_released("ui_right"):
-		input.x=0
+		input.x=min (input.x, 0)
 	if event.is_action_released("ui_left"):
-		input.x=0 
+		input.x=max (input.x, 0) 
 		
 	if event.is_action_pressed("ui_down"):
 		input.y=1
@@ -31,14 +34,22 @@ func _input(event):
 		input.y=-1 
 		
 	if event.is_action_released("ui_down"):
-		input.y=0
+		input.y=min (input.y, 0)
 	if event.is_action_released("ui_up"):
-		input.y=0 
+		input.y=max (input.y, 0)
 		
-	if event.is_action_pressed("ui_accept"):
-		input.z=6
-	if event.is_action_released("ui_accept"):
+	if event.is_action_pressed("ui_select") && grounded:
+		yspeed=3
+		grounded = false
+	if event.is_action_released("ui_select"):
 		input.z=-6
 
+
 func _fixed_process(delta):
-	move(Vector3 (input.x, input.z, input.y) * delta * speed)
+	yspeed += -10 * (delta)
+	var remainder = move(Vector3 (input.x, yspeed, input.y) * delta * speed)
+	if is_colliding():
+		grounded = true
+		var normal = get_collision_normal()
+		remainder = normal.slide(remainder)
+		move(remainder)

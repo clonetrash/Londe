@@ -1,0 +1,74 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://fight.gd" type="Script" id=1]
+
+[node name="Node" type="Node"]
+
+[node name="Control" type="Control" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
+script/script = ExtResource( 1 )
+HP = null
+strength = null
+defense = null
+speed = null
+special = null
+AttackType = null
+UnitName = ""
+UnitImage = null
+
+[node name="HP Label" type="Label" parent="Control"]
+
+rect/scale = Vector2( 2, 2 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 69.0
+margin/top = 39.0
+margin/right = 87.0
+margin/bottom = 53.0
+text = "HP"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="hp-fulll" type="Label" parent="Control"]
+
+rect/scale = Vector2( 2, 2 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 146.0
+margin/top = 39.0
+margin/right = 167.0
+margin/bottom = 53.0
+text = "/40"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="hp_changing" type="Label" parent="Control"]
+
+rect/scale = Vector2( 2, 2 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 111.0
+margin/top = 39.0
+margin/right = 127.0
+margin/bottom = 53.0
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+
