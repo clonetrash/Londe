@@ -1,10 +1,10 @@
 [gd_scene load_steps=2 format=1]
 
-[ext_resource path="res://fight.gd" type="Script" id=1]
+[ext_resource path="res://unit.gd" type="Script" id=1]
 
 [node name="Node" type="Node"]
 
-[node name="Control" type="Control" parent="."]
+[node name="unit" type="Control" parent="."]
 
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -15,16 +15,17 @@ margin/top = 0.0
 margin/right = 40.0
 margin/bottom = 40.0
 script/script = ExtResource( 1 )
-HP = null
-strength = null
-defense = null
-speed = null
-special = null
-AttackType = null
+HP = 0
+strength = 0
+defense = 0
+speed = 0
+expertise = 0
+accuracy = 0
+AttackType = "Ranged"
 UnitName = ""
 UnitImage = null
 
-[node name="HP Label" type="Label" parent="Control"]
+[node name="HP Label" type="Label" parent="unit"]
 
 rect/scale = Vector2( 2, 2 )
 focus/ignore_mouse = true
@@ -40,7 +41,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="hp-fulll" type="Label" parent="Control"]
+[node name="hp-fulll" type="Label" parent="unit"]
 
 rect/scale = Vector2( 2, 2 )
 focus/ignore_mouse = true
@@ -56,7 +57,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="hp_changing" type="Label" parent="Control"]
+[node name="hp_changing" type="Label" parent="unit"]
 
 rect/scale = Vector2( 2, 2 )
 focus/ignore_mouse = true
@@ -70,5 +71,38 @@ margin/bottom = 53.0
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+
+[node name="UnitName" type="Label" parent="unit"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 57.0
+margin/top = 512.0
+margin/right = 151.0
+margin/bottom = 537.0
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="FightText" type="Label" parent="unit"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 437.0
+margin/top = 147.0
+margin/right = 563.0
+margin/bottom = 172.0
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Sprite" type="Sprite" parent="unit"]
+
+transform/pos = Vector2( 161.596, 338.62 )
+transform/scale = Vector2( 0.0833333, 0.0833333 )
 
 

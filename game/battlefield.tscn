@@ -1,0 +1,257 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://unit.gd" type="Script" id=1]
+[ext_resource path="res://transient_pc.png" type="Texture" id=2]
+
+[node name="Node" type="Node"]
+
+[node name="Battlefield" type="Control" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 1.0
+margin/right = 40.0
+margin/bottom = 41.0
+
+[node name="Player" type="Control" parent="Battlefield"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
+script/script = ExtResource( 1 )
+HP = 40
+strength = 1
+defense = 2
+speed = 3
+expertise = 2
+accuracy = 5
+AttackType = "Ranged"
+UnitName = "Player"
+UnitImage = ExtResource( 2 )
+
+[node name="HP Label" type="Label" parent="Battlefield/Player"]
+
+rect/scale = Vector2( 2, 2 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 69.0
+margin/top = 39.0
+margin/right = 87.0
+margin/bottom = 53.0
+text = "HP"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="hp-fulll" type="Label" parent="Battlefield/Player"]
+
+rect/scale = Vector2( 2, 2 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 146.0
+margin/top = 39.0
+margin/right = 167.0
+margin/bottom = 53.0
+text = "/40"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="hp_changing" type="Label" parent="Battlefield/Player"]
+
+rect/scale = Vector2( 2, 2 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 111.0
+margin/top = 39.0
+margin/right = 127.0
+margin/bottom = 53.0
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="UnitName" type="Label" parent="Battlefield/Player"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 57.0
+margin/top = 512.0
+margin/right = 151.0
+margin/bottom = 537.0
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="FightText" type="Label" parent="Battlefield/Player"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 437.0
+margin/top = 147.0
+margin/right = 563.0
+margin/bottom = 172.0
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Sprite" type="Sprite" parent="Battlefield/Player"]
+
+transform/pos = Vector2( 161.596, 338.62 )
+transform/scale = Vector2( 0.0833333, 0.0833333 )
+texture = ExtResource( 2 )
+
+[node name="Enemy" type="Control" parent="Battlefield"]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 649.0
+margin/top = 0.0
+margin/right = 689.0
+margin/bottom = 40.0
+script/script = ExtResource( 1 )
+HP = 40
+strength = 1
+defense = 2
+speed = 3
+expertise = 2
+accuracy = 5
+AttackType = "Ranged"
+UnitName = "Enemy"
+UnitImage = ExtResource( 2 )
+
+[node name="HP Label" type="Label" parent="Battlefield/Enemy"]
+
+rect/scale = Vector2( 2, 2 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 69.0
+margin/top = 39.0
+margin/right = 87.0
+margin/bottom = 53.0
+text = "HP"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="hp-fulll" type="Label" parent="Battlefield/Enemy"]
+
+rect/scale = Vector2( 2, 2 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 146.0
+margin/top = 39.0
+margin/right = 167.0
+margin/bottom = 53.0
+text = "/40"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="hp_changing" type="Label" parent="Battlefield/Enemy"]
+
+rect/scale = Vector2( 2, 2 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 111.0
+margin/top = 39.0
+margin/right = 127.0
+margin/bottom = 53.0
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="UnitName" type="Label" parent="Battlefield/Enemy"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 225.0
+margin/top = 508.0
+margin/right = 319.0
+margin/bottom = 533.0
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="FightText" type="Label" parent="Battlefield/Enemy"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 437.0
+margin/top = 147.0
+margin/right = 563.0
+margin/bottom = 172.0
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Sprite" type="Sprite" parent="Battlefield/Enemy"]
+
+transform/pos = Vector2( 161.596, 338.62 )
+transform/scale = Vector2( 0.0833333, 0.0833333 )
+texture = ExtResource( 2 )
+flip_h = true
+
+[node name="AttackPlayer" type="Button" parent="Battlefield"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 55.0
+margin/top = 547.0
+margin/right = 134.0
+margin/bottom = 567.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Attack"
+flat = false
+
+[node name="AttackEnemy" type="Button" parent="Battlefield"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 811.0
+margin/top = 542.0
+margin/right = 916.0
+margin/bottom = 562.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Attack"
+flat = false
+
+
